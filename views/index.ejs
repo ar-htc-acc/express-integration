@@ -2,11 +2,21 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/css/main.min.css' />
+
+      <% if (process.env.NODE_ENV == 'development') { %>
+        <!-- development mode: -->
+        <link rel='stylesheet' href='/css/main.css' />
+      <% } %>
+      <% if (process.env.NODE_ENV == 'production') { %>
+        <!-- production mode: -->
+        <link rel='stylesheet' href='/css/main.min.css' />
+      <% } %>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <h3>***<%= process.env.NODE_ENV %>***</h3>
 
     <hr>
 
@@ -15,6 +25,13 @@
         <p>Google Chrome is a free, open-source web browser developed by Google, released in 2008.</p>
     </article>
 
-    <script src="/js/main.min.js"></script>
+    <% if (process.env.NODE_ENV == 'development') { %>
+        <!-- development mode: -->
+        <script src="/js/main.js"></script>
+    <% } %>
+    <% if (process.env.NODE_ENV == 'production') { %>
+        <!-- production mode: -->
+        <script src="/js/main.min.js"></script>
+    <% } %>
   </body>
 </html>
