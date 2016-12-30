@@ -23,3 +23,9 @@ Should use non-minified JS/CSS files for development, and use minified JS/CSS fi
 Node environment variable (affects Express):  
 NODE_ENV=production  
 NODE_ENV=development  
+
+# NPM install
+scripts:  
+'start': 'node ./bin/www' (install dependencies)  
+triggers  
+'post install': 'grunt build' (run Grunt tasks, minify JS/CSS)
