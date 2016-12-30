@@ -1,0 +1,35 @@
+{
+  "name": "integration",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "grunt": "grunt",
+    "build": "grunt build",
+    "watch": "grunt watch",
+    "postinstall": "grunt build"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "browserify": "^13.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "less-middleware": "~2.2.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "engines": {
+    "node": "6.9.x"
+  }
+}
