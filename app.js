@@ -23,11 +23,13 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 
 // this to resolve the compiled, minified JS/CSS files
-// local development
-app.use(express.static(path.join(__dirname, 'public', 'tmp')));
-// production
+
+// local development (don't serve public/tmp in production)
+if (process.env.NODE_ENV != 'production') app.use(express.static(path.join(__dirname, 'public', 'tmp')));
+
+// production: serve only images & build/*
 app.use(express.static(path.join(__dirname, 'public', 'build')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
 app.use('/', index);
 app.use('/users', users);
