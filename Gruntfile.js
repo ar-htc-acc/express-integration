@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['public/javascripts/**/*.js'],
-                tasks: ['browserify', 'uglify'] // note: the sequence matters?
+                tasks: ['browserify', 'uglify'] // the order matters?
             },
             styles: {
                 files: ['public/stylesheets/**/*.less'],
@@ -68,5 +68,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['browserify', 'less']); // npm run grunt
 
     // prod
+    // Whenever this "alias task" is run, every specified task in taskList will be run, in the order specified. The taskList argument must be an array of tasks.
     grunt.registerTask('build', ['browserify', 'less', 'uglify', 'cssmin']); // npm run grunt build
 };
