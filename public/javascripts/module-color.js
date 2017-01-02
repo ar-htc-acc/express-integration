@@ -1,3 +1,3 @@
 module.exports = function() {
-    return '#FFEEFF';
+    return '#222222';
 }

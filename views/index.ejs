@@ -5,9 +5,11 @@
       <% if (process.env.NODE_ENV == 'production') { %>
         <!-- production mode: -->
         <link rel='stylesheet' href='/css/main.min.css' />
+        <link rel='stylesheet' href='/css/cssfirst/test.min.css' />
       <% } else { %>
         <!-- development mode: -->
         <link rel='stylesheet' href='/css/main.css' />
+        <link rel='stylesheet' href='/css/cssfirst/test.css' />
       <% } %>
   </head>
   <body>
@@ -15,6 +17,7 @@
     <p>Welcome to <%= title %></p>
 
     <h3>***<%= process.env.NODE_ENV %>***</h3>
+    <h3>This comes from cssfirst/test.less</h3>
 
     <hr>
 
@@ -26,9 +29,11 @@
     <% if (process.env.NODE_ENV == 'production') { %>
         <!-- production mode: -->
         <script src="/js/main.min.js"></script>
+        <script src="/js/jsfirst/test.min.js"></script>
     <% } else { %>
         <!-- development mode: -->
         <script src="/js/main.js"></script>
+        <script src="/js/jsfirst/test.js"></script>
     <% } %>
   </body>
 </html>

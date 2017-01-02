@@ -1,2 +1,2 @@
-var myColor = require('./my-color-picker');
+var myColor = require('./module-color');
 document.body.style.background = myColor();

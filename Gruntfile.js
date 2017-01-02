@@ -1,47 +1,58 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
+        // tasks
         less: {
-            main: {
-                options: {
-                    paths: ['public/stylesheets']
-                },
-                files: {
-                    'public/tmp/css/main.css': 'public/stylesheets/main.less'
-                }
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/stylesheets/',
+                    src: ['**/*.less'],
+                    dest: 'public/tmp/css/',
+                    ext: '.css'
+                }]
             }
         },
         cssmin: {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'public/tmp/css',
-                    src: ['*.css', '!*.min.css'],
-                    dest: 'public/build/css',
+                    cwd: 'public/tmp/css/',
+                    src: ['**/*.css', '!**/*.min.css'],
+                    dest: 'public/build/css/',
                     ext: '.min.css'
                 }]
             }
         },
         browserify: {
-            client: {
-                src:['public/javascripts/main.js'],
-                dest: 'public/tmp/js/main.js'
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/javascripts/',
+                    src: ['**/*.js', '!module-*.js'], // module-*.js are modules that are used by other JS files, don't include them
+                    dest: 'public/tmp/js/',
+                    ext: '.js'
+                }]
             }
         },
         uglify: {
-            myApp: {
-                files: {
-                    'public/build/js/main.min.js': ['public/tmp/js/main.js']
-                }
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/tmp/js/',
+                    src: ['**/*.js', '!**/*.min.js'],
+                    dest: 'public/build/js/',
+                    ext: '.min.js'
+                }]
             }
         },
         watch: {
             scripts: {
-                files: ['public/javascripts/*.js'], // check why **/*.js is not working?
+                files: ['public/javascripts/**/*.js'],
                 tasks: ['browserify', 'uglify'] // note: the sequence matters?
             },
             styles: {
-                files: ['public/stylesheets/*.less'],
+                files: ['public/stylesheets/**/*.less'],
                 tasks: ['less', 'cssmin']
             }
         }
