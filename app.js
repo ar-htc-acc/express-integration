@@ -1,3 +1,8 @@
+var config = require('./config');
+for (let prop in config) {
+  console.log(prop + '::' + config[prop]);
+}
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
