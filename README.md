@@ -18,11 +18,20 @@ LESS: Use contrib-less to compile LESS to CSS files, then use contrib-cssmin to 
 
 Watch file changes: grunt-contrib-watch
 
-Should use non-minified JS/CSS files for development, and use minified JS/CSS files for production.
+Should use non-minified JS/CSS files for development and use minified JS/CSS files for production.
 
 Node environment variable (affects Express):  
 NODE_ENV=production  
 NODE_ENV=development  
+
+# Configuration
+config/
+  - index.js (package loader)
+  - default.js (default settings to be override by environment specific settings)
+  - development.js (development settings)
+  - production.js (production settings)  
+  
+Other settings can be added by setting NODE_ENV and config files; e.g., set NODE_ENV=staging & add 'config/staging.js'.
 
 # NPM install
 scripts:  
