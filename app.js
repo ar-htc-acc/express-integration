@@ -1,3 +1,6 @@
+// set up NODE_ENV with a default value 'development'
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 var config = require('./config');
 for (let prop in config) {
   console.log(prop + '::' + config[prop]);
@@ -14,6 +17,16 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// set up file name additional extension (compressed or not)
+switch (process.env.NODE_ENV) {
+    case 'production':
+        app.locals.FILE_MIN = '.min';
+        break;
+    default:
+        app.locals.FILE_MIN = '';
+        break;
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-      <% if (process.env.NODE_ENV == 'production') { %>
-        <!-- production mode: -->
-        <link rel='stylesheet' href='/css/main.min.css' />
-        <link rel='stylesheet' href='/css/cssfirst/test.min.css' />
-      <% } else { %>
-        <!-- development mode: -->
-        <link rel='stylesheet' href='/css/main.css' />
-        <link rel='stylesheet' href='/css/cssfirst/test.css' />
-      <% } %>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <link rel='stylesheet' href='/css/main<%= FILE_MIN %>.css'/>
+    <link rel='stylesheet' href='/css/cssfirst/test<%= FILE_MIN %>.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<h2>FILE_MIN = <%= FILE_MIN %></h2>
+<p>Welcome to <%= title %></p>
 
-    <h3>***<%= process.env.NODE_ENV %>***</h3>
-    <h3>This comes from cssfirst/test.less</h3>
+<h3>***<%= process.env.NODE_ENV %>***</h3>
+<h3>This comes from cssfirst/test.less</h3>
 
-    <hr>
+<hr>
 
-    <article>
-        <h1>Google Chrome</h1>
-        <p>Google Chrome is a free, open-source web browser developed by Google, released in 2008.</p>
-    </article>
+<article>
+    <h1>Google Chrome</h1>
+    <p>Google Chrome is a free, open-source web browser developed by Google, released in 2008.</p>
+</article>
 
-    <% if (process.env.NODE_ENV == 'production') { %>
-        <!-- production mode: -->
-        <script src="/js/main.min.js"></script>
-        <script src="/js/jsfirst/test.min.js"></script>
-    <% } else { %>
-        <!-- development mode: -->
-        <script src="/js/main.js"></script>
-        <script src="/js/jsfirst/test.js"></script>
-    <% } %>
-  </body>
+<script src="/js/main<%= FILE_MIN %>.js"></script>
+<script src="/js/jsfirst/test<%= FILE_MIN %>.js"></script>
+</body>
 </html>
