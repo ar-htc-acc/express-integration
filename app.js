@@ -21,10 +21,10 @@ var app = express();
 // set up file name additional extension (compressed or not)
 switch (process.env.NODE_ENV) {
     case 'production':
-        app.locals.FILE_MIN = '.min';
+        app.locals.DOT_MIN = '.min';
         break;
     default:
-        app.locals.FILE_MIN = '';
+        app.locals.DOT_MIN = '';
         break;
 }
 
