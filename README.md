@@ -36,8 +36,8 @@ Other settings can be added by setting NODE_ENV and config files; e.g., set NODE
 # Production or not:
 app.js:
   - set default NODE_ENV to 'development' if not specified
-  - app.locals.FILE_MIN = '.min' or '' (depending on NODE_ENV)
-  - link rel='stylesheet' href='/css/main<%= FILE_MIN %>.css' (reduce HTML markup)
+  - app.locals.DOT_MIN = '.min' or '' (depending on NODE_ENV)
+  - link rel='stylesheet' href='/css/main<%= DOT_MIN %>.css' (reduce HTML markup)
 
 # NPM install
 scripts:  
